@@ -69,7 +69,6 @@ unsigned long long powerhash(const std::string& s)
 
 Notice how `hashonce` creates a value modulo, $p$,  `0x1FFFF7` which is less than $2^{21}$ and $2^{42}$. This leads to the custom hash simply being a concatenation of the three rolling hashes `hashonce(s, magic[0])`, `hashonce(s, magic[1])` and `hashonce(s, magic[2])`. Further, if we want to find two strings $s_{0}$ and $s_{1}$ of length $n$, such that $\text{powerhash}(s_{0})=\text{powerhash}(s_{1})$, then the following should be true:
 
-
 ```math
 \text{hashonce}(s_{0}, \text{magic}[0])=\text{hashonce}(s_{1}, \text{magic}[0])
 ```
@@ -82,9 +81,9 @@ Notice how `hashonce` creates a value modulo, $p$,  `0x1FFFF7` which is less tha
 \text{hashonce}(s_{0}, \text{magic}[2])=\text{hashonce}(s_{1}, \text{magic}[2])
 ```
 
-$$
+```math
 \Leftrightarrow
-$$
+```
 
 ```math
 \sum\limits_{i=0}^{n-1} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
@@ -98,9 +97,9 @@ $$
 \sum\limits_{i=0}^{n-1} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
 ```
 
-$$
+```math
 \Leftrightarrow
-$$
+```
 
 ```math
 \sum\limits_{i=0}^{n-1} \; (\text{magic}[0]^i \; \text{mod} \; p) \cdot (s_{0}[i]-s_{1}[i]) \equiv 0 \; (\text{mod} \; p)
@@ -114,9 +113,7 @@ $$
 \sum\limits_{i=0}^{n-1} \; (\text{magic}[2]^i \; \text{mod} \; p) \cdot (s_{0}[i]-s_{1}[i]) \equiv 0 \; (\text{mod} \; p)
 ```
 
-
 Due to the charset requirement, the difference $(s_{0}[i]-s_{1}[i])$ can only be between -25 and 25. Therefore, we seek a linear combination of the terms $`\text{magic}[k]^{i} \; (\text{mod} \; p), \; k \in {0, 1, 2}`$ with small coefficients, $(s_{0}[i]-s_{1}[i])$, and which sums to zero. Normally, this would have been as hard as finding solutions to a system of linear congruences, but since we have constraints on the coefficients it is solvable. We proceed by creating the following matrix:
-
 
 ```math
 L: M=\begin{pmatrix}
@@ -136,7 +133,6 @@ L: M=\begin{pmatrix}
 \therefore \; 
 w=\begin{pmatrix} 0 & 0 & 0 & (s_{0}[0]-s_{1}[0]) & (s_{0}[1]-s_{1}[1]) & (s_{0}[2]-s_{1}[2]) & ... \end{pmatrix} \in L 
 ```
-
 
 The rows in $M$ form the basis of a lattice and there is a small vector $w$ in it which satisfies our linear congruences while giving us the values of the coefficients. Since we need the linear combination to be exactly zero, it is important to multiply each term with a large factor to penalize non-zero sums. Otherwise there might other small vectors where the linear combinations are not zero. We can find the vector $w$ by finding a good reduction of $M$, filling $s_{0}$ with the letter 'a' and setting each character in $s_{1}$ according to the values of the coefficients $`(s_{0}[i]-s_{1}[i]), \; 0 \leq i \leq n-1`$. Potentially, it might also be necessary to swap the corresponding letters in $s_{0}$ and $s_{1}$ if the coefficient is negative. Following is the solve script and the flag found is `SSM{r4nd0m1z3_y0ur_b4s3}`: 
 
