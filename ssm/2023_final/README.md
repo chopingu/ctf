@@ -110,7 +110,7 @@ $$
 
 Due to the charset requirement, the difference $(s_{0}[i]-s_{1}[i])$ can only be between -25 and 25. Therefore, we seek a linear combination of the terms $\text{magic}[k]^{i} \; (\text{mod} \; p), \; k \in {0, 1, 2}$ with small coefficients, $(s_{0}[i]-s_{1}[i])$, and which sums to zero. Normally, this would have been as hard as finding solutions to a system of linear congruences, but since we have constraints on the coefficients it is solvable. We proceed by creating the following matrix:
 
-$$
+```math
 L: M=\begin{pmatrix}
     10^5\cdot\text{magic}[0]^0 & 10^5\cdot\text{magic}[1]^0 & 10^5\cdot\text{magic}[2]^0 & 1 & 0 & ... & 0 \\
     10^5\cdot\text{magic}[0]^1 & 10^5\cdot\text{magic}[1]^1 & 10^5\cdot\text{magic}[2]^1 & 0 & 1 & ... & 0 \\
@@ -122,7 +122,7 @@ L: M=\begin{pmatrix}
     0 & 0 & 10^5 \cdot p & ... \\
 
 \end{pmatrix}
-$$
+```
 
 $$
 \therefore \; 
