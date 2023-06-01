@@ -86,15 +86,15 @@ Notice how `hashonce` creates a value modulo, $p$,  `0x1FFFF7` which is less tha
 ```
 
 ```math
-\sum\limits_{i=0}^{n-1} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
+\sum\limits_{i=0}^{n-1} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n-1} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
 ```
 
 ```math
-\sum\limits_{i=0}^{n-1} \: (\text{magic}[1]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[1]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
+\sum\limits_{i=0}^{n-1} \: (\text{magic}[1]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n-1} \: (\text{magic}[1]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
 ```
 
 ```math
-\sum\limits_{i=0}^{n-1} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
+\sum\limits_{i=0}^{n-1} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n-1} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
 ```
 
 ```math
