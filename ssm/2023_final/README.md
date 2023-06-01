@@ -72,7 +72,13 @@ Notice how `hashonce` creates a value modulo, $p$,  `0x1FFFF7` which is less tha
 
 ```math
 \text{hashonce}(s_{0}, \text{magic}[0])=\text{hashonce}(s_{1}, \text{magic}[0])
+```
+
+```math
 \text{hashonce}(s_{0}, \text{magic}[1])=\text{hashonce}(s_{1}, \text{magic}[1])
+```
+
+```math
 \text{hashonce}(s_{0}, \text{magic}[2])=\text{hashonce}(s_{1}, \text{magic}[2])
 ```
 
@@ -82,7 +88,13 @@ $$
 
 ```math
 \sum\limits_{i=0}^{n-1} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[0]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
+```
+
+```math
 \sum\limits_{i=0}^{n-1} \: (\text{magic}[1]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[1]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
+```
+
+```math
 \sum\limits_{i=0}^{n-1} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{0}[i] \equiv \sum\limits_{i=0}^{n} \: (\text{magic}[2]^i \; \text{mod} \; p) \cdot s_{1}[i] \; (\text{mod} \; p)
 ```
 
@@ -92,11 +104,17 @@ $$
 
 ```math
 \sum\limits_{i=0}^{n-1} \; (\text{magic}[0]^i \; \text{mod} \; p) \cdot (s_{0}[i]-s_{1}[i]) \equiv 0 \; (\text{mod} \; p)
+```
+
+```math
 \sum\limits_{i=0}^{n-1} \; (\text{magic}[1]^i \; \text{mod} \; p) \cdot (s_{0}[i]-s_{1}[i]) \equiv 0 \; (\text{mod} \; p)
+```
+
+```math
 \sum\limits_{i=0}^{n-1} \; (\text{magic}[2]^i \; \text{mod} \; p) \cdot (s_{0}[i]-s_{1}[i]) \equiv 0 \; (\text{mod} \; p)
 ```
 
-Due to the charset requirement, the difference $(s_{0}[i]-s_{1}[i])$ can only be between -25 and 25. Therefore, we seek a linear combination of the terms $\text{magic}[k]^{i} \; (\text{mod} \; p), \; k \in {0, 1, 2}$ with small coefficients, $(s_{0}[i]-s_{1}[i])$, and which sums to zero. Normally, this would have been as hard as finding solutions to a system of linear congruences, but since we have constraints on the coefficients it is solvable. We proceed by creating the following matrix:
+Due to the charset requirement, the difference $(s_{0}[i]-s_{1}[i])$ can only be between -25 and 25. Therefore, we seek a linear combination of the terms $$\text{magic}[k]^{i} \; (\text{mod} \; p), \; k \in {0, 1, 2}$$ with small coefficients, $(s_{0}[i]-s_{1}[i])$, and which sums to zero. Normally, this would have been as hard as finding solutions to a system of linear congruences, but since we have constraints on the coefficients it is solvable. We proceed by creating the following matrix:
 
 ```math
 L: M=\begin{pmatrix}
