@@ -174,29 +174,16 @@ def collision(n):
 
 s1,s2=collision(20)
 s3,s4=collision(30)
+s=[s1, s2, s3, s4]
 
 r=remote('35.217.9.126', 50000, ssl=True)
 
-r.recvuntil(b'Leave\n')
-r.sendline(b'1')
-r.recvuntil(b'sell?\n')
-r.sendline(s1.encode())
-r.recvuntil(b'Leave\n')
-r.sendline(b'1')
-r.recvuntil(b'sell?\n')
-r.sendline(s2.encode())
-r.recvuntil(b'Leave\n')
-r.sendline(b'1')
-r.recvuntil(b'sell?\n')
-r.sendline(s3.encode())
-r.recvuntil(b'Leave\n')
-r.sendline(b'1')
-r.recvuntil(b'sell?\n')
-r.sendline(s4.encode())
-r.recvuntil(b'Leave\n')
-r.sendline(b'2')
-r.recvuntil(b'buy?\n')
-r.sendline(b'Flag')
+for i in range(4):
+    r.sendlineafter(b'Leave\n', b'1')
+    r.sendlineafter(b'sell?\n', s[i].encode()) 
+
+r.sendlineafter(b'Leave\n', b'2')
+r.sendlineafter(b'buy?\n', b'Flag')
 r.recv()
 print(r.recv()[28:-1].decode())
 ```
