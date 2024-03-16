@@ -1,3 +1,3 @@
 ```
-Writeups and solutions to ctf challenges
+Writeups and ctf challenges created by me
 ```
