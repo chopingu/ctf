@@ -1,4 +1,4 @@
-# Swedish Olympiad in IT Security 2023 Final
+# Swedish Championship in Cyber Security 2023 Final
 
 ## [Crypto] Chalmer's Store
 

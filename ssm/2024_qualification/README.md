@@ -1,4 +1,8 @@
-# Swedish Olympiad in IT Security 2024 Qualification
+# Swedish Championship in Cyber Security 2024 Qualification
+
+Since I am not participating this year, I have decided to create a lot of cryptography challenges. 
+Following are the four challenges I created for the qualification of the Swedish Championship in Cyber Security. More detailed explanations may follow in the future.
+
 
 ## [Crypto] Really Secure Autput
 
