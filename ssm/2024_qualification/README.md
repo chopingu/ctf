@@ -6,7 +6,7 @@ Following are the four challenges I created for the qualification of the Swedish
 
 ## [Crypto] Really Secure Autput
 
-**Creator:** chopingu (Adam Amanbaev / me)
+**Creator:** chopingu
 
 **Challenge description:**
 ```
@@ -94,7 +94,7 @@ for i in range(1, 16):
 
 ## [Crypto] md10
 
-**Creator:** chopingu (Adam Amanbaev / me)
+**Creator:** chopingu
 
 **Challenge description:**
 ```
@@ -151,7 +151,7 @@ for i in tqdm(range(len(perms))):
 
 ## [Crypto] BlackSmith
 
-**Creator:** chopingu (Adam Amanbaev / me)
+**Creator:** chopingu
 
 **Challenge description:**
 ```
@@ -283,7 +283,7 @@ print(io.recvuntil(b'\n').decode())
 
 ## [Crypto] rsAI
 
-**Creator:** chopingu (Adam Amanbaev / me)
+**Creator:** chopingu
 
 **Challenge description:**
 ```
